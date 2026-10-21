@@ -1,0 +1,9 @@
+{
+  "status": "post-hoc, not preregistered; values fixed on development data before evaluating the test",
+  "written_at": "2026-10-19T15:42:07",
+  "model": "typesafe/jev-1.14 via https://openrouter.ai/api/v1/systemone",
+  "tau_jev": 0.25,
+  "tau_rule": "max balanced accuracy WL vs NW on the router_train sample; ties -> lower tau",
+  "theta_jev": 0.3,
+  "theta_rule": "max development F1; ties -> lower theta"
+}

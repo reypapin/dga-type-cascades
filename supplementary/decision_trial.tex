@@ -1,0 +1,18 @@
+\begin{table}[!t]
+\caption{Decision-model trial on development domains. AUC values use the option orders specified below. Flip is the percentage of WL answers that change when the options are reversed. Jev is a later API reference.}
+\label{tab:decision-trial}
+\centering\footnotesize
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Model & WL AUC & DGA AUC & Flip & ms/call \\
+\midrule
+d1-3B & 0.962 & 0.844 & 5.0\% & 51.4 \\
+Laya & 0.955 & 0.736 & 35.0\% & 36.9 \\
+Julia-1 & 0.577 & 0.732 & 1.5\% & 25.7 \\
+Jev (API) & 0.992 & 0.907 & 4.0\% & 487 \\
+Dictionary & 0.982 & --- & --- & --- \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{\linewidth}\scriptsize The local chosen order places random-looking/benign first for d1-3B and Laya. The displayed Julia-1 row places real words/DGA first. Jev timing is an internet round trip. Dictionary timing is excluded here; see Section~\ref{sec:latency}.\end{minipage}
+\end{table}

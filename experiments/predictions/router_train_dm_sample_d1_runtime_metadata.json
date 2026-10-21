@@ -1,0 +1,36 @@
+{
+  "seed": 7,
+  "run_name": "router_train_dm_sample",
+  "decision_model": "d1",
+  "model_revision": "051bcc464b01b9f92942b364d9586b0ef5912432",
+  "device": "cuda",
+  "dtype": "float16",
+  "gpu": "Tesla T4",
+  "questions": {
+    "wl": {
+      "type": "choice",
+      "instructions": "Look only at the domain name. How is its main part built?",
+      "criteria": {
+        "a": "Random-looking letters or digits",
+        "b": "Real English words joined together"
+      }
+    },
+    "dga": {
+      "type": "choice",
+      "instructions": "Look only at the domain name. Who most likely created it?",
+      "criteria": {
+        "a": "A person or company, for a real website or service",
+        "b": "Malware, using a domain generation algorithm"
+      }
+    }
+  },
+  "runtime": {
+    "python": "3.13.15",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.39",
+    "processor": "x86_64"
+  },
+  "torch": "2.11.0+cu130",
+  "num_input_domains": 8000,
+  "num_output_rows": 8000,
+  "output_csv": "/content/New_Paper_MOE/experiments/predictions/router_train_dm_sample_d1_decision_predictions.csv"
+}

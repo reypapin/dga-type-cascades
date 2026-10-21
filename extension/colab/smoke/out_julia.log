@@ -1,0 +1,93 @@
+== colab new -s smoke-julia --gpu T4
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Creating session 'smoke-julia'...
+[colab] Session READY.
+== colab upload -s smoke-julia /home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/smoke_domains.csv /content/smoke_domains.csv
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Uploaded '/home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/smoke_domains.csv' to '/content/smoke_domains.csv'
+== colab upload -s smoke-julia /home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/out/cfg_julia.json /content/smoke_cfg.json
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Uploaded '/home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/out/cfg_julia.json' to '/content/smoke_cfg.json'
+== colab exec -s smoke-julia -f /home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/smoke_install.py --timeout 1500
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+pip huggingface_hub
+/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_auth.py:138: UserWarning: 
+Error while fetching `HF_TOKEN` secret value from your vault: 'Requesting secret HF_TOKEN timed out. Secrets can only be fetched when running from the Colab UI.'.
+  warnings.warn(f"\nError while fetching `HF_TOKEN` secret value from your vault: '{str(e)}'.")
+Downloading bytes:           |  0.00B            
+Reconstructing (incomplete total...): |          |  0.00B /  0.00B            
+Fetching 46 files:   0%|          | 0/46 [00:00<?, ?it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+pip -e /content/Julia-1
+torch                                 2.11.0+cu130
+transformers                          5.0.0
+INSTALL_OK julia
+== colab restart-kernel -s smoke-julia
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+== colab exec -s smoke-julia -f /home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/smoke_run.py --timeout 2400
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+example raw answer: {"wl": {"type": "choice", "probabilities": {"a": 0.7606506526772884, "b": 0.23934934732271168}, "choice": "a", "max_probability": 0.7606506526772884}, "dga": {"type": "choice", "probabilities": {"a": 0.09670579329612154, "b": 0.9032942067038784}, "choice": "b", "max_probability": 0.9032942067038784}}
+{
+  "model": "julia",
+  "device": "cuda",
+  "dtype": "n/a",
+  "gpu": "Tesla T4",
+  "python": "3.13.15",
+  "torch": "2.11.0+cu130",
+  "rows": 400,
+  "latency_ms_batch1_mean": 25.689286602499948,
+  "latency_ms_batch1_p50": 24.881821500002843,
+  "latency_ms_batched_64": NaN,
+  "auc_wl_vs_nw": 0.5766,
+  "auc_dga_vs_benign": 0.7323624999999999,
+  "flip_rate_wl": 0.015,
+  "flip_rate_dga": 0.1425
+}
+RUN_OK julia
+== colab download -s smoke-julia /content/smoke_out_julia.csv /home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/out/smoke_out_julia.csv
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Downloaded '/content/smoke_out_julia.csv' to '/home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/out/smoke_out_julia.csv'
+== colab download -s smoke-julia /content/smoke_meta_julia.json /home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/out/smoke_meta_julia.json
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Downloaded '/content/smoke_meta_julia.json' to '/home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/out/smoke_meta_julia.json'
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Stopping session 'smoke-julia'...
+[colab] Session terminated.
+SMOKE_DONE julia

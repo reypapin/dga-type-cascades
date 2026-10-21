@@ -1,0 +1,136 @@
+source_split,family,rows,header,relative_source_path,size_bytes
+Train Family,alureon,900000,",domain,family,subfamily,label",Train Family/alureon.gz,9463031
+Train Family,bamital,312530,",domain,family,subfamily,label",Train Family/bamital.gz,2920683
+Train Family,banjori,857911,",domain,family,subfamily,label",Train Family/banjori.gz,5390502
+Train Family,bedep,932819,",domain,family,subfamily,label",Train Family/bedep.gz,12616902
+Train Family,charbot,98999,",domain,family,subfamily,label",Train Family/charbot.gz,1087184
+Train Family,chinad,1574150,",domain,family,subfamily,label",Train Family/chinad.gz,23652872
+Train Family,conficker,1888200,",domain,family,subfamily,label",Train Family/conficker.gz,18037889
+Train Family,corebot,1553814,",domain,family,subfamily,label",Train Family/corebot.gz,18671715
+Train Family,cryptolocker,3214350,",domain,family,subfamily,label",Train Family/cryptolocker.gz,42873812
+Train Family,deception,270000,",domain,family,subfamily,label",Train Family/deception.gz,2786809
+Train Family,dircrypt,913212,",domain,family,subfamily,label",Train Family/dircrypt.gz,11984004
+Train Family,dnschanger,1350004,",domain,family,subfamily,label",Train Family/dnschanger.gz,14202123
+Train Family,dyre,2737800,",domain,family,subfamily,label",Train Family/dyre.gz,68048076
+Train Family,emotet,365007,",domain,family,subfamily,label",Train Family/emotet.gz,4204861
+Train Family,fobber,1814490,",domain,family,subfamily,label",Train Family/fobber.gz,22679327
+Train Family,gameover,20439000,",domain,family,subfamily,label",Train Family/gameover.gz,441969611
+Train Family,gozi,451899,",domain,family,subfamily,label",Train Family/gozi.gz,5129748
+Train Family,kraken,924750,",domain,family,subfamily,label",Train Family/kraken.gz,8941172
+Train Family,legit(1),3218468,",domain,family,subfamily,label",Train Family/legit(1).gz,34582772
+Train Family,locky,2638746,",domain,family,subfamily,label",Train Family/locky.gz,25022187
+Train Family,manuelita,100000,"domain,family,subfamily,label",Train Family/manuelita.gz,844535
+Train Family,matsnu,1048306,",domain,family,subfamily,label",Train Family/matsnu.gz,10020569
+Train Family,monerominer,1642500,",domain,family,subfamily,label",Train Family/monerominer.gz,9640744
+Train Family,murofet,25426980,",domain,family,subfamily,label",Train Family/murofet.gz,247739710
+Train Family,murofetweekly,543600,",domain,family,subfamily,label",Train Family/murofetweekly.gz,15083917
+Train Family,mydoom,148049,",domain,family,subfamily,label",Train Family/mydoom.gz,1375468
+Train Family,necurs,13350182,",domain,family,subfamily,label",Train Family/necurs.gz,195611486
+Train Family,nymaim,1959944,",domain,family,subfamily,label",Train Family/nymaim.gz,20591374
+Train Family,oderoor,315268,",domain,family,subfamily,label",Train Family/oderoor.gz,2515675
+Train Family,padcrypt,1133528,",domain,family,subfamily,label",Train Family/padcrypt.gz,14814244
+Train Family,pitou,674856,",domain,family,subfamily,label",Train Family/pitou.gz,2472415
+Train Family,proslikefan,1096297,",domain,family,subfamily,label",Train Family/proslikefan.gz,10729459
+Train Family,pushdo,1329867,",domain,family,subfamily,label",Train Family/pushdo.gz,13111760
+Train Family,pykspa,1834335,",domain,family,subfamily,label",Train Family/pykspa.gz,17969809
+Train Family,qadars,1482930,",domain,family,subfamily,label",Train Family/qadars.gz,16745944
+Train Family,qakbot,4270500,",domain,family,subfamily,label",Train Family/qakbot.gz,64258082
+Train Family,qsnatch,1985882,",domain,family,subfamily,label",Train Family/qsnatch.gz,10479446
+Train Family,ramdo,917550,",domain,family,subfamily,label",Train Family/ramdo.gz,11675208
+Train Family,ramnit,285163,",domain,family,subfamily,label",Train Family/ramnit.gz,3627968
+Train Family,ranbyus,3259206,",domain,family,subfamily,label",Train Family/ranbyus.gz,47586691
+Train Family,rovnix,1083150,",domain,family,subfamily,label",Train Family/rovnix.gz,14230346
+Train Family,shiotob,901800,",domain,family,subfamily,label",Train Family/shiotob.gz,11007191
+Train Family,simda,929246,",domain,family,subfamily,label",Train Family/simda.gz,8206400
+Train Family,sisron,992286,",domain,family,subfamily,label",Train Family/sisron.gz,3914242
+Train Family,sphinx,168537,",domain,family,subfamily,label",Train Family/sphinx.gz,2413055
+Train Family,suppobox,1422236,",domain,family,subfamily,label",Train Family/suppobox.gz,7038108
+Train Family,symmi,1172473,",domain,family,subfamily,label",Train Family/symmi.gz,12809638
+Train Family,tempedreve,91755,",domain,family,subfamily,label",Train Family/tempedreve.gz,918290
+Train Family,tinba,1021453,",domain,family,subfamily,label",Train Family/tinba.gz,11822073
+Train Family,tinynuke,95040,",domain,family,subfamily,label",Train Family/tinynuke.gz,2162310
+Train Family,vawtrak,968670,",domain,family,subfamily,label",Train Family/vawtrak.gz,9281248
+Train Family,vidro,136350,",domain,family,subfamily,label",Train Family/vidro.gz,819240
+Train Family,virut,23022000,",domain,family,subfamily,label",Train Family/virut.gz,173730512
+Train Family,zeus-newgoz,900000,",domain,family,subfamily,label",Train Family/zeus-newgoz.gz,19565892
+Train Family,zloader,118800,",domain,family,subfamily,label",Train Family/zloader.gz,1829222
+Families_Test,alureon,100000,",domain,family,subfamily,label",Families_Test/alureon.gz,1052409
+Families_Test,bamital,34726,",domain,family,subfamily,label",Families_Test/bamital.gz,324806
+Families_Test,banjori,95324,",domain,family,subfamily,label",Families_Test/banjori.gz,599631
+Families_Test,bedep,103647,",domain,family,subfamily,label",Families_Test/bedep.gz,1431898
+Families_Test,charbot,11000,",domain,family,subfamily,label",Families_Test/charbot.gz,120905
+Families_Test,chinad,174906,",domain,family,subfamily,label",Families_Test/chinad.gz,2621124
+Families_Test,conficker,209800,",domain,family,subfamily,label",Families_Test/conficker.gz,2032104
+Families_Test,corebot,172646,",domain,family,subfamily,label",Families_Test/corebot.gz,2681674
+Families_Test,cryptolocker,357150,",domain,family,subfamily,label",Families_Test/cryptolocker.gz,4762255
+Families_Test,deception,30000,",domain,family,subfamily,label",Families_Test/deception.gz,316182
+Families_Test,dircrypt,101468,",domain,family,subfamily,label",Families_Test/dircrypt.gz,1331783
+Families_Test,dnschanger,150001,",domain,family,subfamily,label",Families_Test/dnschanger.gz,1577796
+Families_Test,dyre,304200,",domain,family,subfamily,label",Families_Test/dyre.gz,7516674
+Families_Test,emotet,40557,",domain,family,subfamily,label",Families_Test/emotet.gz,460919
+Families_Test,fobber,201610,",domain,family,subfamily,label",Families_Test/fobber.gz,3038143
+Families_Test,gameover,2271000,",domain,family,subfamily,label",Families_Test/gameover.gz,49170096
+Families_Test,gozi,50211,",domain,family,subfamily,label",Families_Test/gozi.gz,598148
+Families_Test,kraken,102750,",domain,family,subfamily,label",Families_Test/kraken.gz,992705
+Families_Test,legit,357608,",domain,family,subfamily,label",Families_Test/legit.gz,3932163
+Families_Test,locky,293194,",domain,family,subfamily,label",Families_Test/locky.gz,3602842
+Families_Test,manuelita,20000,"domain,family,subfamily,label",Families_Test/manuelita.gz,168590
+Families_Test,matsnu,116479,",domain,family,subfamily,label",Families_Test/matsnu.gz,1231035
+Families_Test,monerominer,182500,",domain,family,subfamily,label",Families_Test/monerominer.gz,1073325
+Families_Test,murofet,2825220,",domain,family,subfamily,label",Families_Test/murofet.gz,31555155
+Families_Test,murofetweekly,60400,",domain,family,subfamily,label",Families_Test/murofetweekly.gz,1677433
+Families_Test,mydoom,16450,",domain,family,subfamily,label",Families_Test/mydoom.gz,153064
+Families_Test,necurs,1483354,",domain,family,subfamily,label",Families_Test/necurs.gz,20910830
+Families_Test,nymaim,217772,",domain,family,subfamily,label",Families_Test/nymaim.gz,2588185
+Families_Test,oderoor,35030,",domain,family,subfamily,label",Families_Test/oderoor.gz,284191
+Families_Test,padcrypt,125948,",domain,family,subfamily,label",Families_Test/padcrypt.gz,1645699
+Families_Test,pitou,74984,",domain,family,subfamily,label",Families_Test/pitou.gz,279003
+Families_Test,proslikefan,121811,",domain,family,subfamily,label",Families_Test/proslikefan.gz,1189694
+Families_Test,pushdo,147763,",domain,family,subfamily,label",Families_Test/pushdo.gz,1506910
+Families_Test,pykspa,203815,",domain,family,subfamily,label",Families_Test/pykspa.gz,1980894
+Families_Test,qadars,164770,",domain,family,subfamily,label",Families_Test/qadars.gz,1876636
+Families_Test,qakbot,474500,",domain,family,subfamily,label",Families_Test/qakbot.gz,7134992
+Families_Test,qsnatch,220654,",domain,family,subfamily,label",Families_Test/qsnatch.gz,1181367
+Families_Test,ramdo,101950,",domain,family,subfamily,label",Families_Test/ramdo.gz,1297321
+Families_Test,ramnit,31685,",domain,family,subfamily,label",Families_Test/ramnit.gz,402801
+Families_Test,ranbyus,362134,",domain,family,subfamily,label",Families_Test/ranbyus.gz,5663661
+Families_Test,rovnix,120350,",domain,family,subfamily,label",Families_Test/rovnix.gz,1495093
+Families_Test,shiotob,100201,",domain,family,subfamily,label",Families_Test/shiotob.gz,1224077
+Families_Test,simda,103250,",domain,family,subfamily,label",Families_Test/simda.gz,981061
+Families_Test,sisron,110254,",domain,family,subfamily,label",Families_Test/sisron.gz,473627
+Families_Test,sphinx,18727,",domain,family,subfamily,label",Families_Test/sphinx.gz,266791
+Families_Test,suppobox,158027,",domain,family,subfamily,label",Families_Test/suppobox.gz,781312
+Families_Test,symmi,130275,",domain,family,subfamily,label",Families_Test/symmi.gz,1421979
+Families_Test,tempedreve,10195,",domain,family,subfamily,label",Families_Test/tempedreve.gz,101618
+Families_Test,tinba,113495,",domain,family,subfamily,label",Families_Test/tinba.gz,1365373
+Families_Test,tinynuke,10560,",domain,family,subfamily,label",Families_Test/tinynuke.gz,238527
+Families_Test,vawtrak,107630,",domain,family,subfamily,label",Families_Test/vawtrak.gz,939070
+Families_Test,vidro,15150,",domain,family,subfamily,label",Families_Test/vidro.gz,90173
+Families_Test,virut,2558000,",domain,family,subfamily,label",Families_Test/virut.gz,19255968
+Families_Test,zeus-newgoz,100000,",domain,family,subfamily,label",Families_Test/zeus-newgoz.gz,2173773
+Families_Test,zloader,13200,",domain,family,subfamily,label",Families_Test/zloader.gz,200693
+New Family,bazarbackdoor,50000,"domain,label",New Family/bazarbackdoor.gz,320232
+New Family,bazarbackdoor_v2,50000,"domain,label",New Family/bazarbackdoor_v2.gz,324379
+New Family,bazarbackdoor_v3,20000,"domain,label",New Family/bazarbackdoor_v3.gz,71701
+New Family,bigviktor,2000,"domain,label",New Family/bigviktor.gz,18455
+New Family,bumblebee,2000,"domain,label",New Family/bumblebee.gz,17503
+New Family,ccleaner,10000,"domain,label",New Family/ccleaner.gz,75315
+New Family,dmsniff,2000,"domain,label",New Family/dmsniff.gz,1190
+New Family,enviserv,50000,"domain,label",New Family/enviserv.gz,370499
+New Family,fosniw,4000,"domain,label",New Family/fosniw.gz,10033
+New Family,goz,1667,"domain,label",New Family/goz.gz,28711
+New Family,gozi_rfc4343,50000,"domain,label",New Family/gozi_rfc4343.gz,443956
+New Family,infy,10000,"domain,label",New Family/infy.gz,56703
+New Family,monerodownloader,50000,"domain,label",New Family/monerodownloader.gz,473068
+New Family,newgoz,50000,"domain,label",New Family/newgoz.gz,957635
+New Family,ngioweb,2000,"domain,label",New Family/ngioweb.gz,24842
+New Family,pandabanker,20000,"domain,label",New Family/pandabanker.gz,145892
+New Family,pizd,10000,"domain,label",New Family/pizd.gz,44715
+New Family,reconyc,50000,"domain,label",New Family/reconyc.gz,443882
+New Family,sharkbot,2000,"domain,label",New Family/sharkbot.gz,396
+New Family,szribi,10000,"domain,label",New Family/szribi.gz,42006
+New Family,torpig,50000,"domain,label",New Family/torpig.gz,254072
+New Family,tufik,2000,"domain,label",New Family/tufik.gz,14872
+New Family,verblecon,2000,"domain,label",New Family/verblecon.gz,21354
+New Family,wd,20000,"domain,label",New Family/wd.gz,392913
+New Family,xshellghost,2000,"domain,label",New Family/xshellghost.gz,16705

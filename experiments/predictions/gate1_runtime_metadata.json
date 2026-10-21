@@ -1,0 +1,22 @@
+{
+  "seed": 7,
+  "experts": [
+    "Logit",
+    "ModernBERT",
+    "DomURLs-BERT"
+  ],
+  "batch_size": {
+    "Logit": 4096,
+    "ModernBERT": 128,
+    "DomURLs-BERT": 128
+  },
+  "threshold": 0.5,
+  "runtime": {
+    "python": "3.12.13",
+    "platform": "Linux-6.6.122+-x86_64-with-glibc2.35",
+    "processor": "x86_64"
+  },
+  "num_input_domains": 95750,
+  "num_output_rows": 287250,
+  "output_csv": "/content/New_Paper_MOE/experiments/predictions/gate1_uniform_predictions.csv"
+}

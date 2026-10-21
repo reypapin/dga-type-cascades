@@ -1,0 +1,21 @@
+\section{Exact Decision-Model Questions}
+\label{app:questions}
+
+Each call sends the state \texttt{Domain name: \{domain\}}, where \texttt{\{domain\}} is the evaluated name.
+No family label, expert score, or true label is included.
+Both questions ask for the typed response \texttt{choice}, with option \texttt{a} listed first.
+
+\emph{WL question:} ``Look only at the domain name. How is its main part built?''
+Options: \texttt{a}, ``Random-looking letters or digits''; \texttt{b}, ``Real English words joined together''.
+
+\emph{DGA question:} ``Look only at the domain name. Who most likely created it?''
+Options: \texttt{a}, ``A person or company, for a real website or service''; \texttt{b}, ``Malware, using a domain generation algorithm''.
+
+The WL and DGA probabilities are the probabilities of option \texttt{b} in each question.
+If an answer gives only the chosen option and its confidence, the probability of \texttt{b} is that confidence when \texttt{b} is chosen, and one minus it otherwise.
+The local model is \texttt{LiquidAI/d1-3B}, run in float16 on the T4 GPU, at revision
+\begin{quote}\ttfamily\footnotesize
+051bcc464b01b9f92942b364d9586b0ef5912432.
+\end{quote}
+The API model is \texttt{typesafe/jev-1.14}, called through the OpenRouter endpoint \texttt{/api/v1/systemone}.
+The released code contains the exact question objects (\path{extension/scripts/run_jev_openrouter.py}).

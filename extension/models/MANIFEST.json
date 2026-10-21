@@ -1,0 +1,30 @@
+{
+  "trained_on": "router_train split (54 seen families), cheapest-correct-expert target",
+  "seeds": [
+    7,
+    17,
+    29,
+    43,
+    61
+  ],
+  "c1_fp_weight": 2.0,
+  "sha256": {
+    "router_cacic_s7.joblib": "663aa4c8911bb79f23bfbb63622b13be8b8a340db9e268be347759184564c52f",
+    "router_c1_s7.joblib": "28d6b58d448679afdea861bb5c3a7a4861ace95725b3319588f923488d347224",
+    "router_cacic_s17.joblib": "460207526a90d8520dc8deb2c2068b26d4182557bce881cdce4da84738f374ad",
+    "router_c1_s17.joblib": "812a497189073dde0131148678cc366cbd0073c1b9bbdbb1ea41ec39dba847ab",
+    "router_cacic_s29.joblib": "1b7d4d84dba9a11d74c6cf4e9b0ce8adb09170dede94cad7c250cf05d2cb37c4",
+    "router_c1_s29.joblib": "d0aca95d1b2d7225168e985a51f4b066d563fd5f7f26ee3bafea5f7284f0882f",
+    "router_cacic_s43.joblib": "1ea092c7afcdf5815f2cdc92261cc9320a19df59c41ce84830e3b9b44004cd94",
+    "router_c1_s43.joblib": "ac44f837cff070a9f06675314b53a2240be80524c75acd9c2b059cafb10dfa83",
+    "router_cacic_s61.joblib": "d985ac6c01012544aa1b4fe022c6d7c63960afeda18089f6e3acb688adaa3473",
+    "router_c1_s61.joblib": "ecfeff0054f6bfab772cf1c270622f48806c2499cb6fea9e9265250e2626ee68"
+  },
+  "versions": {
+    "python": "3.12.3",
+    "scikit-learn": "1.9.0",
+    "joblib": "1.5.3",
+    "numpy": "1.26.4",
+    "pandas": "3.0.3"
+  }
+}

@@ -1,0 +1,19 @@
+\begin{table}[!t]
+\caption{Test results at thresholds chosen on the development set for FPR targets of 0.1\% and 1\%.}
+\label{tab:fixed-fpr}
+\centering\footnotesize
+\setlength{\tabcolsep}{2.4pt}
+\begin{tabular}{@{}lcccccc@{}}
+\toprule
+ & \multicolumn{3}{c}{0.1\% target} & \multicolumn{3}{c}{1\% target} \\ \cmidrule(lr){2-4}\cmidrule(lr){5-7} System & Recall & FPR & $P_{1:100}$ & Recall & FPR & $P_{1:100}$ \\
+\midrule
+Logit & 0.254 & 0.05\% & 0.830 & 0.659 & 1.03\% & 0.390 \\
+ModernBERT & 0.297 & 0.02\% & 0.931 & 0.742 & 0.88\% & 0.458 \\
+DomURLs\_BERT & 0.199 & 0.02\% & 0.892 & 0.668 & 0.86\% & 0.437 \\
+C1 & 0.231 & 0.03\% & 0.878 & 0.725 & 0.87\% & 0.454 \\
+C4\textsuperscript{a} & 0.229 & 0.05\% & 0.833 & 0.655 & 1.00\% & 0.395 \\
+C5 & 0.246 & 0.06\% & 0.797 & 0.655 & 1.00\% & 0.395 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{\linewidth}\scriptsize FPR: achieved test FPR in percent. C4 and C5: mean over five routers, each with its own threshold. \textsuperscript{a}Later descriptive analysis; the other rows were specified before the test run.\end{minipage}
+\end{table}

@@ -1,0 +1,20 @@
+\begin{table}[!t]
+\caption{Thresholds and weights, and the data used to choose them.}
+\label{tab:selection}
+\centering\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lcl@{}}
+\toprule
+Parameter & Value & Chosen on, by \\
+\midrule
+Confidence $t$ & 0.80 & Development; F1 of C2 \\
+C5 weight $w$ & 2.0 & Development; lowest FPR \\
+C6 $\tau$ & 0.40 & Training; balanced WL/NW accuracy \\
+C7 $\tau$ & 0.35 & Training sample; balanced accuracy \\
+C8\posthoc\ $\tau$ & 0.25 & Training sample; balanced accuracy \\
+C9 $\theta$ & 0.10 & Development; highest F1 \\
+C10\posthoc\ $\theta$ & 0.30 & Development; highest F1 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{\linewidth}\scriptsize Training: the 54 seen families. Development: the 25 held-out families. The rule for $w$ keeps F1 within 0.005 of C4. \(\dagger\): post-hoc.\end{minipage}
+\end{table}

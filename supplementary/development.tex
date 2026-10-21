@@ -1,0 +1,26 @@
+\begin{table*}[!t]
+\caption{Development results. Slice columns are recall in percent. C4/C5 report means and sample standard deviations for F1 and FPR over five seeds; other entries are means. C5, C6, C7, and C9 were frozen before the test run; C3, C8, and C10 are post-hoc.}
+\label{tab:development}
+\centering\footnotesize
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+System & F1 & FPR & $P_{1:100}$ & WL & NW & ms \\
+\midrule
+Logit & 0.8383 & 0.0479 & 0.137 & 43.5 & 82.8 & 0.077 \\
+ModernBERT & 0.7594 & 0.0345 & 0.155 & 49.6 & 66.5 & 1.930 \\
+DomURLs\_BERT & 0.8517 & 0.0460 & 0.145 & 38.7 & 86.2 & 1.650 \\
+\midrule C1 & 0.8382 & 0.0269 & 0.216 & 45.4 & 80.4 & 3.657 \\
+C2 & 0.8588 & 0.0396 & 0.165 & 41.8 & 86.3 & 0.705 \\
+C3\posthoc & 0.7908 & 0.0315 & 0.177 & 52.2 & 70.9 & 0.812 \\
+\midrule C4 & $0.8652\pm0.0045$ & $0.0511\pm0.0044$ & 0.137 & 61.9 & 84.4 & 0.904 \\
+C5 & $0.8658\pm0.0050$ & $0.0420\pm0.0020$ & 0.160 & 57.7 & 84.5 & 0.513 \\
+\midrule C6 & 0.8682 & 0.0340 & 0.190 & 52.2 & 85.3 & 0.760 \\
+C7 & 0.8703 & 0.0353 & 0.185 & 52.2 & 85.9 & 21.096 \\
+C8\posthoc & 0.8728 & 0.0331 & 0.195 & 52.3 & 86.2 & 181.092 \\
+\midrule C9 & 0.8633 & 0.1000 & 0.078 & 51.4 & 91.2 & 20.407 \\
+C10\posthoc & 0.8837 & 0.0731 & 0.105 & 52.4 & 92.5 & 180.409 \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{\linewidth}\scriptsize \(\dagger\): post-hoc. Jev times are internet round trips. Threshold provenance is given in Table~\ref{tab:selection}.\end{minipage}
+\end{table*}

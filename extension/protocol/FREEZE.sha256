@@ -1,0 +1,14 @@
+6da66fa19e5231af8c14d7944d3d05161e8faea979907515d71beca71ad5bb00  PREREGISTRO_V2.md
+f6bbe6c5c93abf18ec483b4d112e914a84221c649066c64b3867d4f9fb65b731  ../config/frozen_v2.json
+17d4c45c8c6e2a375d1a6e363939aa6b5b26fb64e7da59fb4acce9225ee2d94f  ../scripts/run_test_v2.py
+f99c92b9c02db0a5fd3ad655acf60a22003a881e89e4bbff3b5bff6436f1cf7a  ../lib/cacic.py
+8fbfac5fa0f65ed198f6648e62b1d2bde4c4434861bdd4db5eae15fe78023f08  ../lib/decision.py
+999fc5995bb058b1ce9942b3e15d0d4a02f74e1b003944e34ad2f08e58cbcbcb  ../lib/diagnostics.py
+ea9c9e79e018eac3c4b77080a30b49eaca5ae08c35bf02ba1fc16568f0f9f94b  ../lib/wordlist.py
+c15cd7d9d4e910c60968e222c17199ad1629b239b4c910e9e3dcb910c0fb7df9  ../lib/bootstrap.py
+e2ca02e702c74a4c1936ca8aecc4ea173e25006c314d1687c1d170de0442b213  ../lib/freeze.py
+f58a3c0219709b9977bd8f998625b3564db042203f3d2205422e7401f48681a0  ../lib/frozen.py
+9f513f1ceadb6a01c5485b7dbdfd5118dc66cd70b59cae2851292112d4066a32  ../data/american-english.txt
+c47afb14ea5c468cf85635943bd68fdbc8d23c010576f278503f0cd29bd1802f  ../../data/final_test_doubtful_domains.csv
+7daf942d7c4818f228b2601ba675743e429f4be1dbbcb7412fa8291c74c12176  ../../decision_models_final_test_doubtful_colab_content_root_package.zip
+b3da0f5014a82040fe4093b67727e65649c1a662937fc39f8e5a3e43348a4042  ../../notebooks/decision_models_colab_predictions.ipynb

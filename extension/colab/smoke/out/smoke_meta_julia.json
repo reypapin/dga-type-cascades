@@ -1,0 +1,16 @@
+{
+  "model": "julia",
+  "device": "cuda",
+  "dtype": "n/a",
+  "gpu": "Tesla T4",
+  "python": "3.13.15",
+  "torch": "2.11.0+cu130",
+  "rows": 400,
+  "latency_ms_batch1_mean": 25.689286602499948,
+  "latency_ms_batch1_p50": 24.881821500002843,
+  "latency_ms_batched_64": NaN,
+  "auc_wl_vs_nw": 0.5766,
+  "auc_dga_vs_benign": 0.7323624999999999,
+  "flip_rate_wl": 0.015,
+  "flip_rate_dga": 0.1425
+}

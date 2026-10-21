@@ -1,0 +1,14 @@
+\begin{table}[!t]
+\caption{C4 routing of benign test domains, pooled over the five routers. Overall FPR is the expert's rate on all benign domains; routed FPR uses only the benign domains sent to that expert. The routed rates weighted by the route shares give the observed C4 FPR, 0.0455.}
+\label{tab:benign-routing}
+\centering\small
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Expert & Route share & Overall FPR & Routed FPR \\
+\midrule
+Logit & 39.7\% & 0.0432 & 0.0667 \\
+ModernBERT & 53.7\% & 0.0303 & 0.0273 \\
+DomURLs\_BERT & 6.6\% & 0.0360 & 0.0662 \\
+\bottomrule
+\end{tabular}
+\end{table}

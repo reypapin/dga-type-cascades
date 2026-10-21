@@ -1,0 +1,95 @@
+== colab new -s smoke-laya --gpu T4
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Creating session 'smoke-laya'...
+[colab] Session READY.
+== colab upload -s smoke-laya /home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/smoke_domains.csv /content/smoke_domains.csv
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Uploaded '/home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/smoke_domains.csv' to '/content/smoke_domains.csv'
+== colab upload -s smoke-laya /home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/out/cfg_laya.json /content/smoke_cfg.json
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Uploaded '/home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/out/cfg_laya.json' to '/content/smoke_cfg.json'
+== colab exec -s smoke-laya -f /home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/smoke_install.py --timeout 1500
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+pip laya
+laya                                  0.4.12
+torch                                 2.11.0+cu130
+transformers                          5.18.0
+INSTALL_OK laya
+== colab restart-kernel -s smoke-laya
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+== colab exec -s smoke-laya -f /home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/smoke_run.py --timeout 2400
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_auth.py:138: UserWarning: 
+Error while fetching `HF_TOKEN` secret value from your vault: 'Requesting secret HF_TOKEN timed out. Secrets can only be fetched when running from the Colab UI.'.
+  warnings.warn(f"\nError while fetching `HF_TOKEN` secret value from your vault: '{str(e)}'.")
+Downloading bytes:           |  0.00B            
+Reconstructing (incomplete total...): |          |  0.00B /  0.00B            
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+WARNING:huggingface_hub.utils._http:Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+/usr/local/lib/python3.13/dist-packages/laya/agent.py:2149: RuntimeWarning: laya: this checkpoint ships invalid temperatures or values outside [0.5, 5]; using choice:11+=0.10058280825614929 -> 0.5. Treat confidence from the affected entries as uncalibrated.
+  return Agent(model_id_or_path, device=device, token=token, subfolder=subfolder, fast=fast,
+example raw answer: {"wl": {"type": "choice", "choice": "b", "probabilities": {"a": 0.4963, "b": 0.5037}, "confidence": 0.0, "answer_confidence": 0.5037, "action": {"act_probability": 1.0}}, "dga": {"type": "choice", "choice": "a", "probabilities": {"a": 0.6692, "b": 0.3308}, "confidence": 0.0842, "answer_confidence": 0.6692, "action": {"act_probability": 1.0}}}
+{
+  "model": "laya",
+  "device": "cuda",
+  "dtype": "n/a",
+  "gpu": "Tesla T4",
+  "python": "3.13.15",
+  "torch": "2.11.0+cu130",
+  "rows": 400,
+  "latency_ms_batch1_mean": 36.93007821750051,
+  "latency_ms_batch1_p50": 35.901172999999176,
+  "latency_ms_batched_64": NaN,
+  "auc_wl_vs_nw": 0.8361,
+  "auc_dga_vs_benign": 0.7519,
+  "flip_rate_wl": 0.35,
+  "flip_rate_dga": 0.065
+}
+RUN_OK laya
+== colab download -s smoke-laya /content/smoke_out_laya.csv /home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/out/smoke_out_laya.csv
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Downloaded '/content/smoke_out_laya.csv' to '/home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/out/smoke_out_laya.csv'
+== colab download -s smoke-laya /content/smoke_meta_laya.json /home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/out/smoke_meta_laya.json
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Downloaded '/content/smoke_meta_laya.json' to '/home/reynier/Work/Doc Leer/New_Paper_MOE_CACIC/extension/colab/smoke/out/smoke_meta_laya.json'
+
+[colab] A new version of Colab CLI is available: 0.7.4 (current: 0.6.0)
+[colab] Run 'colab update' to update.
+[colab] To silence this check, set "enable_update_check": false in ~/.config/colab-cli/settings.json
+
+[colab] Stopping session 'smoke-laya'...
+[colab] Session terminated.
+SMOKE_DONE laya

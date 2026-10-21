@@ -1,0 +1,158 @@
+{
+  "c1": {
+    "dev_mean": {
+      "dev_recall_at_0.001": 0.2237371860724356,
+      "dev_recall_at_0.01": 0.5329063845599004,
+      "f1": 0.8657810937974683,
+      "fpr": 0.04199283985679714,
+      "latency_mean_ms": 0.5133160950430314,
+      "recall": 0.7983781775261743,
+      "thr_0.001": 0.9922710161209107,
+      "thr_0.01": 0.892437384853363,
+      "wl_recall": 0.576825
+    },
+    "dev_mean_fp_weight_0": {
+      "dev_recall_at_0.001": 0.2104434875740421,
+      "dev_recall_at_0.01": 0.5151581386199209,
+      "f1": 0.8652498734202065,
+      "fpr": 0.05108102162043241,
+      "latency_mean_ms": 0.9036642959624122,
+      "recall": 0.8051146423029005,
+      "thr_0.001": 0.9946481347084045,
+      "thr_0.01": 0.9067058920097351,
+      "wl_recall": 0.61945
+    },
+    "fp_weight": 2.0,
+    "fp_weight_grid": [
+      0.0,
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "score": "p_dga of the chosen expert",
+    "seeds": [
+      7,
+      17,
+      29,
+      43,
+      61
+    ],
+    "selection_rule": "lowest mean dev FPR with mean dev F1 >= F1(fp_weight=0) - 0.005; ties by lower latency",
+    "system": "FPR-aware router (CACIC router + benign false-alarm weight)",
+    "thresholds_by_seed": {
+      "17": {
+        "0.001": 0.99,
+        "0.01": 0.8821
+      },
+      "29": {
+        "0.001": 0.9910202622413636,
+        "0.01": 0.8901
+      },
+      "43": {
+        "0.001": 0.9918193817138672,
+        "0.01": 0.8841
+      },
+      "61": {
+        "0.001": 0.9951142072677612,
+        "0.01": 0.9075137376785278
+      },
+      "7": {
+        "0.001": 0.9934012293815612,
+        "0.01": 0.8983731865882874
+      }
+    }
+  },
+  "c2": {
+    "dev": {
+      "f1": 0.8681734152304849,
+      "fpr": 0.03396067921358427,
+      "latency_mean_ms": 0.7603363024326847,
+      "nw_recall": 0.8534078567455167,
+      "recall": 0.7955235951126751,
+      "share_DomURLs-BERT": 0.18364490861618799,
+      "share_Logit": 0.619195822454308,
+      "share_ModernBERT": 0.19715926892950392,
+      "wl_recall": 0.522375
+    },
+    "label": "longest label excluding the TLD",
+    "min_word_len": 3,
+    "random_control_shares_dev": {
+      "DomURLs-BERT": 0.18364490861618799,
+      "Logit": 0.619195822454308,
+      "ModernBERT": 0.19715926892950392
+    },
+    "system": "type cascade with dictionary WL rule",
+    "t": 0.8,
+    "tau": 0.4,
+    "tau_grid": [
+      0.2,
+      0.25,
+      0.3,
+      0.35,
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.75,
+      0.8,
+      0.85,
+      0.9,
+      0.95
+    ],
+    "tau_rule": "max balanced accuracy WL vs NW on router_train DGA rows; ties -> lower tau",
+    "word_file": "extension/data/american-english.txt",
+    "word_file_sha256": "9f513f1ceadb6a01c5485b7dbdfd5118dc66cd70b59cae2851292112d4066a32"
+  },
+  "c3": {
+    "dev": {
+      "f1": 0.8702878134027604,
+      "fpr": 0.03526070521410428,
+      "latency_mean_ms": 21.095681734027245,
+      "nw_recall": 0.8590236020237875,
+      "recall": 0.8000480863806255,
+      "share_DomURLs-BERT": 0.16483550913838121,
+      "share_Logit": 0.619195822454308,
+      "share_ModernBERT": 0.21596866840731072,
+      "wl_recall": 0.52175
+    },
+    "system": "type cascade with decision-model WL answer",
+    "t": 0.8,
+    "tau_dm": 0.35,
+    "tau_rule": "max balanced accuracy WL vs NW on the router_train sample; ties -> lower tau"
+  },
+  "c4": {
+    "dev": {
+      "f1": 0.8633309442752195,
+      "fpr": 0.0999819996399928,
+      "latency_mean_ms": 20.406975707572045,
+      "nw_recall": 0.9120817991576382,
+      "recall": 0.8425171034512907,
+      "share_DomURLs-BERT": NaN,
+      "share_Logit": NaN,
+      "share_ModernBERT": NaN,
+      "wl_recall": 0.51425
+    },
+    "system": "doubtful-case judge (decision-model DGA answer)",
+    "t": 0.8,
+    "theta": 0.1,
+    "theta_rule": "max development F1; ties -> lower theta"
+  },
+  "decision_model": {
+    "candidates_file": "extension/results/smoke_decision_models.csv",
+    "dtype": "float16 (T4 has no bf16)",
+    "hf_repo": "LiquidAI/d1-3B",
+    "model": "d1",
+    "option_order": "random/benign option first (WL_KEY = DGA_KEY = 'b')",
+    "revision": "051bcc464b01b9f92942b364d9586b0ef5912432",
+    "selection_rule": "highest WL-vs-NW AUC on the 400-domain gate1 smoke sample; ties -> lower latency",
+    "smoke": {
+      "auc_dga_vs_benign": 0.8443,
+      "auc_wl_vs_nw": 0.962,
+      "latency_ms_batch1": 51.4
+    }
+  }
+}

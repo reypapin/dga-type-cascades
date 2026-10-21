@@ -1,0 +1,14 @@
+{
+  "model": "typesafe/jev-1.14",
+  "endpoint": "https://openrouter.ai/api/v1/systemone",
+  "rows": 400,
+  "latency_ms_api_mean": 487.4985852699592,
+  "latency_ms_api_p50": 462.20327699847985,
+  "auc_wl_vs_nw_wl_option_first": 0.99225,
+  "auc_wl_vs_nw_random_option_first": 0.9906999999999999,
+  "auc_dga_vs_benign_wl_option_first": 0.906775,
+  "auc_dga_vs_benign_random_option_first": 0.9068375,
+  "flip_rate_wl": 0.0375,
+  "flip_rate_dga": 0.0375,
+  "cost_usd": 0.013549284000000047
+}

@@ -1,0 +1,7 @@
+model,order,auc_wl_vs_nw,auc_dga_vs_benign,latency_ms
+d1,random_option_first,0.962,0.8443,51.4
+d1,wl_option_first,0.9607,0.8421,51.4
+laya,random_option_first,0.9547,0.7356,36.9
+laya,wl_option_first,0.8361,0.7519,36.9
+julia,wl_option_first,0.5766,0.7324,25.7
+julia,random_option_first,0.4948,0.6908,25.7

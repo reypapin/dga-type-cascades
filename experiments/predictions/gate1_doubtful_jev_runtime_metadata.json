@@ -1,0 +1,36 @@
+{
+  "seed": null,
+  "run_name": "gate1_doubtful",
+  "decision_model": "jev",
+  "model_revision": "typesafe/jev-1.14",
+  "endpoint": "https://openrouter.ai/api/v1/systemone",
+  "device": "OpenRouter API (latency is the round trip from this machine)",
+  "parallel_workers": 16,
+  "questions": {
+    "wl": {
+      "type": "choice",
+      "instructions": "Look only at the domain name. How is its main part built?",
+      "criteria": {
+        "a": "Random-looking letters or digits",
+        "b": "Real English words joined together"
+      }
+    },
+    "dga": {
+      "type": "choice",
+      "instructions": "Look only at the domain name. Who most likely created it?",
+      "criteria": {
+        "a": "A person or company, for a real website or service",
+        "b": "Malware, using a domain generation algorithm"
+      }
+    }
+  },
+  "runtime": {
+    "python": "3.12.3",
+    "platform": "Linux-6.8.0-147-generic-x86_64-with-glibc2.39"
+  },
+  "num_input_domains": 36462,
+  "num_output_rows": 36462,
+  "total_cost_usd": 0.616743414,
+  "posthoc": true,
+  "output_csv": "experiments/predictions/gate1_doubtful_jev_decision_predictions.csv"
+}

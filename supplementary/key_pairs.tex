@@ -1,0 +1,21 @@
+\begin{table}[!t]
+\caption{F1 differences between C6 and selected systems on the test set.}
+\label{tab:key-pairs}
+\centering\footnotesize
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Pair & Difference & 95\% interval & Clear \\
+\midrule
+C6 $-$ ModernBERT & +0.0191 & [$-$0.004, +0.056] & no \\
+C6 $-$ C1 & +0.0170 & [$-$0.003, +0.039] & no \\
+C6 $-$ C2 & +0.0600 & [+0.010, +0.121] & yes \\
+C6 $-$ C3\posthoc & +0.0081 & [$-$0.002, +0.022] & no \\
+C6 $-$ C4 & +0.0129 & [+0.006, +0.020] & yes \\
+C6 $-$ C7 & +0.0032 & [+0.001, +0.006] & yes \\
+C6 $-$ C8\posthoc & $-$0.0004 & [$-$0.002, +0.001] & no \\
+C6 $-$ C10\posthoc & +0.0301 & [$-$0.004, +0.076] & no \\
+\bottomrule
+\end{tabular}
+\par\smallskip\begin{minipage}{\linewidth}\scriptsize Paired bootstrap over DGA families and benign domains, not adjusted for multiple comparisons. Clear: the interval excludes zero. \(\dagger\): post-hoc.\end{minipage}
+\end{table}
