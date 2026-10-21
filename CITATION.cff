@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this code or data, please cite it as below."
 title: "DGA Type Cascades: Code, Data, and Results"
-abstract: "Code, data, and results for the paper 'Type Cascades for Cost-Aware DGA Detection under Family Shift'."
+abstract: "Code, data, and results for the paper 'Type Cascades for DGA Detection on Unseen Families: Balancing F1, False Positives, and Latency'."
 type: software
 authors:
   - family-names: "Leyva La O"

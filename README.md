@@ -1,8 +1,8 @@
 <div align="center">
 
-# Type Cascades for Cost-Aware DGA Detection
+# Type Cascades for DGA Detection on Unseen Families
 
-**Code, data, and results for the paper _"Type Cascades for Cost-Aware DGA Detection under Family Shift"_**
+**Code, data, and results for the paper _"Type Cascades for DGA Detection on Unseen Families: Balancing F1, False Positives, and Latency"_**
 
 Reynier Leyva La O &middot; Carlos A. Catania &middot; Rodrigo Gonzalez
 
