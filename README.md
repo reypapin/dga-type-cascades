@@ -127,7 +127,9 @@ python paper/tools/build_pairwise_matrix.py
 
 `extension/scripts/run_test_v2.py` without `--dry-run` is the single test run. It checks the hashes first
 and refuses to run when `extension/results/test_v2_decision_summary.md` exists. To repeat it, work in a
-fresh copy of the repository and delete that file first; the outputs should match the released files.
+fresh copy of the repository and delete that file first. We ran all the steps above in a fresh clone: every
+result file came out identical, except the run date in `extension/config/posthoc_jev.json` and
+`extension/results/posthoc_jev_summary.md` and the gzip headers of the `.csv.gz` files (same content).
 
 ### Running the models again (optional, GPU)
 
@@ -142,6 +144,10 @@ fresh copy of the repository and delete that file first; the outputs should matc
 - The exact questions sent to the decision models are in `supplementary/14_appendix_questions.tex` and in
   each `experiments/predictions/*_runtime_metadata.json`.
 - `extension/colab/smoke/` holds the trial of Julia-1, Laya, and d1-3B on 400 development domains that chose d1-3B.
+- The notebooks download model code from Hugging Face and run it (`trust_remote_code=True`). The main notebook
+  pins d1-3B and Julia-1 to fixed revisions, but its Laya branch and the trial scripts in `extension/colab/smoke/`
+  install `laya` and load d1-3B without a pinned version. They are kept as they ran; pin the versions before
+  running them again.
 
 ## Layout
 
