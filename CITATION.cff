@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite it as below."
+title: "DGA Type Cascades: Code, Data, and Results"
+abstract: "Code, data, and results for the paper 'Type Cascades for Cost-Aware DGA Detection under Family Shift'."
+type: software
+authors:
+  - family-names: "Leyva La O"
+    given-names: "Reynier"
+    orcid: "https://orcid.org/0000-0003-3975-1437"
+  - family-names: "Catania"
+    given-names: "Carlos A."
+    orcid: "https://orcid.org/0000-0002-1749-310X"
+  - family-names: "Gonzalez"
+    given-names: "Rodrigo"
+    orcid: "https://orcid.org/0000-0002-1939-0534"
+repository-code: "https://github.com/reypapin/dga-type-cascades"
+license: MIT
+date-released: 2026-10-21
+keywords:
+  - DGA detection
+  - DNS security
+  - cascade
+  - mixture of experts
+  - malware

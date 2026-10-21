@@ -1,17 +1,75 @@
-# dga-type-cascades
+<div align="center">
 
-Code, data, and results for the paper **"Type Cascades for Cost-Aware DGA Detection under Family Shift"**
-(Reynier Leyva La O, Carlos A. Catania, and Rodrigo Gonzalez; submitted to IEEE Latin America Transactions).
+# Type Cascades for Cost-Aware DGA Detection
 
-The paper compares thirteen systems for detecting domains made by domain generation algorithms (DGAs) on
-27 family groups that the detectors never saw in training. It judges each system on three metrics
-together: F1, false-positive rate (FPR), and time per domain. The systems are three single detectors and
-ten configurations (C1-C10) that combine them. The main new configuration is the **type cascade**: a fast
-detector (Logit) keeps its confident decisions, and a word cue sends each doubtful domain to the
-transformer that suits its type of name (ModernBERT for names built from words, DomURLs_BERT for the rest).
+**Code, data, and results for the paper _"Type Cascades for Cost-Aware DGA Detection under Family Shift"_**
 
-All results can be recomputed on a CPU from the saved per-domain predictions in this repository.
-Only the Colab notebooks need a GPU, and only to run the detectors and the local decision model again.
+Reynier Leyva La O &middot; Carlos A. Catania &middot; Rodrigo Gonzalez
+
+![License: MIT](https://img.shields.io/badge/license-MIT-blue)
+![Python 3.12](https://img.shields.io/badge/python-3.12-3776AB?logo=python&logoColor=white)
+![scikit-learn 1.9.0](https://img.shields.io/badge/scikit--learn-1.9.0-F7931E?logo=scikitlearn&logoColor=white)
+![Reproducible on CPU](https://img.shields.io/badge/results-reproducible%20on%20CPU-2ea44f)
+![Paper](https://img.shields.io/badge/paper-IEEE%20Latin%20America%20Transactions%20(in%20preparation)-lightgrey)
+
+</div>
+
+Malware uses domain generation algorithms (DGAs) to create many domain names for its servers. A detector
+for real DNS traffic must catch domains from DGA families it never saw in training, raise few false alarms,
+and answer fast. This repository compares **thirteen systems** on **27 family groups unseen in training**
+and judges them on the three metrics together: **F1, false-positive rate (FPR), and time per domain**.
+
+## The idea: a type cascade
+
+<p align="center">
+  <img src="assets/type_cascade.png" alt="Type cascade: Logit keeps its confident decisions; a word cue sends each doubtful domain to ModernBERT if its name is made of words, and to DomURLs_BERT otherwise." width="100%">
+</p>
+
+No single detector is best on every DGA family. The fast Logit detector decides most domains alone. Only the
+doubtful ones reach a transformer, and a word cue chooses which one: ModernBERT for names built from dictionary
+words (wordlist DGAs), DomURLs_BERT for the rest. The word cue only chooses the detector; it never labels the
+domain.
+
+## Main result
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/three_metrics_dark.png">
+  <img src="assets/three_metrics_light.png" alt="Dot plot of F1, false-positive rate, and time per domain for the 13 systems on the test set. C3 and C6 are highlighted." width="100%">
+</picture>
+
+- **C6** (type cascade with a dictionary rule) and **C3**&dagger; (confidence cascade from Logit to ModernBERT)
+  beat the most systems, five each, and no system beats them. C6 had the higher F1 and was faster; C3 had the
+  lower FPR.
+- Both need about a third of the time of ModernBERT alone, with no clear loss in F1 or FPR.
+- C1, the average of the three detectors, has the lowest FPR (2.33%) but needs 5.1 times the time of C6.
+- Asking a decision model (d1-3B or Jev) instead of the dictionary rule (C7, C8&dagger;), or letting it judge
+  the doubtful domains (C9, C10&dagger;), did not improve this balance.
+
+&dagger; designed after seeing earlier test results; all thresholds were still fixed without the test set.
+
+## The ten configurations
+
+<p align="center">
+  <img src="assets/configurations.png" alt="The ten configurations: (a) C1 score average, (b) C2 and C3 confidence cascades, (c) C4 and C5 learned routers, (d) C6 to C8 type cascades, (e) C9 and C10 doubtful-case judges, (f) random control." width="100%">
+</p>
+
+## Evaluation design
+
+```mermaid
+flowchart LR
+    TR["<b>Training set</b><br/>54 families seen by the detectors<br/>53,967 DGA · 50,000 benign"]
+    DEV["<b>Development set</b><br/>25 unseen families<br/>45,751 DGA · 49,999 benign"]
+    SYS["<b>13 fixed systems</b><br/>3 detectors + C1 to C10"]
+    TE["<b>Test set</b><br/>18 new families + 9 declared variants<br/>35,258 DGA · 50,000 benign"]
+    EV["<b>F1 · FPR · time</b><br/>paired bootstrap for all 78 pairs"]
+    TR -- "train the routers,<br/>set the word-cue thresholds" --> SYS
+    DEV -- "choose the decision model,<br/>thresholds, and weights" --> SYS
+    SYS -- "evaluate only" --> TE --> EV
+```
+
+All results can be recomputed on a CPU from the saved per-domain predictions in this repository
+(see [Reproducing the results](#reproducing-the-results)). Only the Colab notebooks need a GPU, and only to
+run the detectors and the local decision model again.
 
 ## Related repositories
 
@@ -65,7 +123,7 @@ after a `DictVectorizer` and a `StandardScaler`, trained with seeds 7, 17, 29, 4
 ## Results on the test set
 
 Default thresholds; time is the mean per domain in milliseconds, without the router features and the
-dictionary lookup. C4 and C5 are the mean of five seeds.
+dictionary lookup. C4 and C5 are the mean of five seeds. Bold: C3 and C6, which beat the most systems.
 
 | System | F1 | FPR | ms |
 |---|---|---|---|
@@ -74,14 +132,14 @@ dictionary lookup. C4 and C5 are the mean of five seeds.
 | DomURLs_BERT | 0.8642 | 0.0360 | 1.583 |
 | C1 | 0.9133 | 0.0233 | 3.544 |
 | C2 | 0.8703 | 0.0320 | 0.616 |
-| C3 | 0.9223 | 0.0295 | 0.726 |
+| **C3**&dagger; | **0.9223** | **0.0295** | **0.726** |
 | C4 | 0.9175 | 0.0455 | 0.916 |
 | C5 | 0.9081 | 0.0368 | 0.522 |
-| C6 | 0.9304 | 0.0304 | 0.689 |
+| **C6** | **0.9304** | **0.0304** | **0.689** |
 | C7 | 0.9271 | 0.0327 | 20.250 |
-| C8 | 0.9307 | 0.0302 | 162.907 |
+| C8&dagger; | 0.9307 | 0.0302 | 162.907 |
 | C9 | 0.8740 | 0.1019 | 19.620 |
-| C10 | 0.9002 | 0.0687 | 162.282 |
+| C10&dagger; | 0.9002 | 0.0687 | 162.282 |
 
 Source: `extension/results/summary_final_test.csv`. The paired 95% bootstrap intervals for all 78 pairs
 are in `extension/results/test_v2_all_pairs.csv` (F1) and `extension/results/test_v2_all_pairs_fpr.csv`
@@ -123,6 +181,9 @@ python extension/scripts/fixed_fpr_c4.py
 python paper/tools/build_detector_choice.py
 python paper/tools/build_test_summary.py
 python paper/tools/build_pairwise_matrix.py
+
+# 5. The plot at the top of this README (written to assets/).
+python paper/tools/plot_three_metrics.py extension/results/summary_final_test.csv assets
 ```
 
 `extension/scripts/run_test_v2.py` without `--dry-run` is the single test run. It checks the hashes first
@@ -165,9 +226,15 @@ extension/models/         the 10 saved routers (C4 and C5, five seeds each)
 extension/results/        every result file used in the paper
 extension/tests/          unit tests
 extension/colab/          scripts and logs of the decision-model runs
-paper/                    generators and LaTeX sources of the paper tables
+paper/                    generators of the paper tables (written to paper/tables/, not tracked) and the plot in this README
+assets/                   figures of this README
 supplementary/            extra tables that do not fit in the paper (see supplementary/README.md)
 ```
+
+## How to cite
+
+The paper reference will be added here once it is published. Until then, please cite this repository
+(GitHub button *Cite this repository*, from `CITATION.cff`).
 
 ## License
 
