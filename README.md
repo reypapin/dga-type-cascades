@@ -38,14 +38,14 @@ domain.
 </picture>
 
 - **C6** (type cascade with a dictionary rule) and **C3**&dagger; (confidence cascade from Logit to ModernBERT)
-  beat the most systems, five each, and no system beats them. C6 had the higher F1 and was faster; C3 had the
+  pointwise dominate the most systems, five each, and no system dominates them. C6 had the higher F1 and was faster; C3 had the
   lower FPR.
 - Both need about a third of the time of ModernBERT alone, with no clear loss in F1 or FPR.
 - C1, the average of the three detectors, has the lowest FPR (2.33%) but needs 5.1 times the time of C6.
 - Asking a decision model (d1-3B or Jev) instead of the dictionary rule (C7, C8&dagger;), or letting it judge
   the doubtful domains (C9, C10&dagger;), did not improve this balance.
 
-&dagger; designed after seeing earlier test results; all thresholds were still fixed without the test set.
+&dagger; added after the current test run. C5, C6, C7, and C9 were designed using earlier conference-test observations and fixed before the current run. All thresholds were set on router training or development data.
 
 ## The ten configurations
 
@@ -57,7 +57,7 @@ domain.
 
 ```mermaid
 flowchart LR
-    TR["<b>Training set</b><br/>54 families seen by the detectors<br/>53,967 DGA · 50,000 benign"]
+    TR["<b>Router training set</b><br/>54 families seen by the detectors<br/>53,967 DGA · 50,000 benign"]
     DEV["<b>Development set</b><br/>25 unseen families<br/>45,751 DGA · 49,999 benign"]
     SYS["<b>13 fixed systems</b><br/>3 detectors + C1 to C10"]
     TE["<b>Test set</b><br/>18 new families + 9 declared variants<br/>35,258 DGA · 50,000 benign"]
@@ -84,7 +84,7 @@ run the detectors and the local decision model again.
 
 | Set | File | DGA family groups | DGA domains | Benign domains | Use |
 |---|---|---|---|---|---|
-| Training | `data/router_train_domains.csv` | 54 seen by the detectors (8 WL, 46 NW) | 53,967 | 50,000 | train the routers, set the word-cue thresholds |
+| Router training | `data/router_train_domains.csv` | 54 seen by the detectors (8 WL, 46 NW) | 53,967 | 50,000 | train the routers, set the word-cue thresholds |
 | Development | `data/gate1_domains.csv` | 25 unseen (4 WL, 21 NW) | 45,751 | 49,999 | choose the decision model, thresholds, and weights |
 | Test | `data/final_test_domains.csv` | 27 unseen: 18 new and 9 declared variants (4 WL, 23 NW) | 35,258 | 50,000 | evaluate the fixed systems only |
 
@@ -105,7 +105,7 @@ The scripts use earlier internal names. This table maps them to the names in the
 | DomURLs_BERT | `AlwaysDomURLs-BERT` | fine-tuned DomURLs_BERT |
 | C1 | `EnsembleMean` | mean of the three scores |
 | C2 | `CascadeLogitDomURLs_t0.80` | confidence cascade, Logit then DomURLs_BERT |
-| C3 | `Diag_CascadeLogitModernBERT_t0.80` | confidence cascade, Logit then ModernBERT (designed after the earlier test) |
+| C3 | `Diag_CascadeLogitModernBERT_t0.80` | confidence cascade, Logit then ModernBERT (added after the current test) |
 | C4 | `Router` | learned router, 5 seeds |
 | C5 | `C1_fpr_router` | learned router with a false-positive cost, 5 seeds |
 | C6 | `C2_type_cascade_rule` | type cascade, dictionary rule |
@@ -123,7 +123,7 @@ after a `DictVectorizer` and a `StandardScaler`, trained with seeds 7, 17, 29, 4
 ## Results on the test set
 
 Default thresholds; time is the mean per domain in milliseconds, without the router features and the
-dictionary lookup. C4 and C5 are the mean of five seeds. Bold: C3 and C6, which beat the most systems.
+dictionary lookup. C4 and C5 are the mean of five seeds. Bold: C3 and C6, which dominate the most systems.
 
 | System | F1 | FPR | ms |
 |---|---|---|---|
@@ -143,14 +143,29 @@ dictionary lookup. C4 and C5 are the mean of five seeds. Bold: C3 and C6, which 
 
 Source: `extension/results/summary_final_test.csv`. The paired 95% bootstrap intervals for all 78 pairs
 are in `extension/results/test_v2_all_pairs.csv` (F1) and `extension/results/test_v2_all_pairs_fpr.csv`
-(FPR). The recall of every system on each test group is in `extension/results/test_v2_per_family.csv`.
+(FPR). For every pair involving C4 or C5, use the updated interval in
+`extension/results/revision_router_seed_intervals.csv`: each bootstrap replicate also draws one of the
+five router seeds. The original files remain as records of the earlier analysis. The recall of every
+system on each test group is in `extension/results/test_v2_per_family.csv`.
+
+The tutor-review checks are reported in four `extension/results/revision_*.csv` files. They include a
+random control that keeps the Logit step and randomizes only doubtful cases; WL/NW AUC on test DGA names;
+router-seed intervals; and routers retrained without the 1,198 expert/router-training overlaps.
+`data/router_expert_overlap.csv` contains the exact overlap index, and its JSON sidecar records the full
+expert-training corpus hash. This index reproduces the same exclusion mask without a machine-specific path.
+It does not change the original model predictions, thresholds, or frozen files.
+
+## Version
+
+The tutor-review update is version `1.1.0`. `RELEASE_SHA256SUMS` pins the shipped files;
+the tag `v1.1.0` marks this version. The frozen protocol hashes remain unchanged.
 
 ## Reproducing the results
 
 Python 3.12. From the repository root:
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements-analysis.txt
 
 # Tests (28) and the hashes of the files fixed before the test run (14 files).
 python -m unittest discover -s extension/tests -t .
@@ -177,12 +192,18 @@ python extension/scripts/per_family.py
 python extension/scripts/key_comparisons.py
 python extension/scripts/fixed_fpr_c4.py
 
-# 4. Tables II-IV of the paper (written to paper/tables/).
+# 4. Tutor-review analyses from saved outputs (no expert or decision-model inference).
+python extension/scripts/revision_tutor.py --checks control auc intervals
+# Optional: repeats only the linear-router training for the overlap-removal check.
+python extension/scripts/revision_tutor.py --checks overlap
+
+# 5. Paper and supplementary tables, including updated router intervals.
+python paper/tools/build_tables.py
 python paper/tools/build_detector_choice.py
 python paper/tools/build_test_summary.py
 python paper/tools/build_pairwise_matrix.py
 
-# 5. The plot at the top of this README (written to assets/).
+# 6. The plot at the top of this README (written to assets/).
 python paper/tools/plot_three_metrics.py extension/results/summary_final_test.csv assets
 ```
 
@@ -191,6 +212,10 @@ and refuses to run when `extension/results/test_v2_decision_summary.md` exists. 
 fresh copy of the repository and delete that file first. We ran all the steps above in a fresh clone: every
 result file came out identical, except the run date in `extension/config/posthoc_jev.json` and
 `extension/results/posthoc_jev_summary.md` and the gzip headers of the `.csv.gz` files (same content).
+
+`requirements-analysis.txt` pins the packages used for the saved-output analyses. The environment
+record is `analysis_environment.json`. The optional model runs use `requirements.txt` and their runtime
+metadata; the original notebooks are preserved rather than silently updated.
 
 ### Running the models again (optional, GPU)
 

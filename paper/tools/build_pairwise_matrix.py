@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render the all-against-all table on F1, FPR, and time on the test set."""
+"""Render the all-against-all dominance table on F1, FPR, and time (moved to supplementary/ on 2026-10-23)."""
 from pathlib import Path
 import csv
 
@@ -69,7 +69,7 @@ for a, _, label, _ in order:
     body.append(head + ' & ' + ' & '.join(cells) + f' & {wins[a]} & {losses[a]}' + r' \\')
 
 ncol = len(order)
-text = [r'\begin{table}[!t]',
+text = [r'\begin{table*}[!t]',
         r'\caption{Pairwise comparison of the systems on F1, FPR, and time.}',
         r'\label{tab:pairs}', r'\centering\footnotesize', r'\setlength{\tabcolsep}{1.6pt}',
         r'\renewcommand{\arraystretch}{1.1}',
@@ -77,10 +77,10 @@ text = [r'\begin{table}[!t]',
         r'Row vs.\ column & ' + ' & '.join(r'\scriptsize ' + s[3] for s in order) + r' & Won & Lost \\',
         r'\midrule'] + body + [r'\bottomrule', r'\end{tabular}',
         r'\par\smallskip\begin{minipage}{\linewidth}\scriptsize ' + CELL['win'].replace(r'\cellcolor{winbg}', '')
-        + r': the row system beats the column system: it is at least as good in F1, FPR, and time, and better in at least one (Section~\ref{sec:selection}). '
-        + CELL['loss'].replace(r'\cellcolor{lossbg}', '') + r': the column system beats the row system. ' + CELL['trade']
-        + r': trade-off; each system is better in at least one metric. Values from Table~\ref{tab:test}. Rows and columns are sorted by wins. Won: number of systems that the row system beats; Lost: number of systems that beat it. Shaded: C3 and C6, which beat the most systems. Lo: Logit; MB: ModernBERT; DU: DomURLs\_BERT. \(\dagger\): post-hoc.\end{minipage}',
-        r'\end{table}']
-(HERE / 'tables' / 'pairwise_matrix.tex').write_text('\n'.join(text) + '\n')
+        + r': the row system dominates the column system: it is at least as good in F1, FPR, and time, and better in at least one (Section~\ref{sec:selection}). '
+        + CELL['loss'].replace(r'\cellcolor{lossbg}', '') + r': the column system dominates the row system. ' + CELL['trade']
+        + r': trade-off; each system is better in at least one metric. Values from Table~\ref{tab:test}. Rows and columns are sorted by wins. Won: number of systems that the row system dominates; Lost: number of systems that dominate it. Shaded: C3 and C6, which dominate the most systems. Lo: Logit; MB: ModernBERT; DU: DomURLs\_BERT. \(\dagger\): post-hoc.\end{minipage}',
+        r'\end{table*}']
+(HERE / 'supplementary' / 'pairwise_matrix.tex').write_text('\n'.join(text) + '\n')
 for a in [s[0] for s in order]:
     print(f'{a:13s} won {wins[a]:2d} lost {losses[a]:2d}')

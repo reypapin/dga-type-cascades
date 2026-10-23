@@ -1,0 +1,7 @@
+set,cue,n_wl,n_nw,auc_wl_vs_nw
+"test doubtful DGA domains, selection sample removed",dictionary,6708,8035,0.9352843051364057
+"test doubtful DGA domains, selection sample removed",d1,6708,8035,0.9500265033828224
+"test doubtful DGA domains, selection sample removed",jev,6708,8035,0.9684621896822154
+"development doubtful DGA domains, selection sample removed",dictionary,5347,14516,0.9836755330516804
+"development doubtful DGA domains, selection sample removed",d1,5347,14516,0.9755379268978163
+"development doubtful DGA domains, selection sample removed",jev,5347,14516,0.9955058715705924

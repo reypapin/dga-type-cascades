@@ -1,0 +1,9 @@
+{
+  "source": "dga-multifamily-benchmark/Dataset/train_1M.csv",
+  "source_sha256": "f4ec98c29b31f5387583368f3bf4c0d25566e3f3b5b67a02b2d066400416935a",
+  "normalization": "strip whitespace and lowercase domain strings",
+  "router_training_rows": 103967,
+  "overlap_rows": 1198,
+  "overlap_dga_rows": 1193,
+  "purpose": "Reproduce the exact overlap-removal mask without requiring a local copy of the full expert training corpus."
+}

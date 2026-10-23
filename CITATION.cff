@@ -15,7 +15,8 @@ authors:
     orcid: "https://orcid.org/0000-0002-1939-0534"
 repository-code: "https://github.com/reypapin/dga-type-cascades"
 license: MIT
-date-released: 2026-10-21
+date-released: 2026-10-23
+version: 1.1.0
 keywords:
   - DGA detection
   - DNS security
