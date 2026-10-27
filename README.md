@@ -4,7 +4,7 @@
 
 **Code, data, and results for the paper _"Type Cascades for DGA Detection on Unseen Families: Balancing F1, False Positives, and Latency"_**
 
-Reynier Leyva La O &middot; Carlos A. Catania &middot; Rodrigo Gonzalez
+Reynier Leyva La O &middot; Tatiana S. Parlanti &middot; Carlos A. Catania &middot; Rodrigo Gonzalez
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue)
 ![Python 3.12](https://img.shields.io/badge/python-3.12-3776AB?logo=python&logoColor=white)
